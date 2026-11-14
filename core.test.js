@@ -1,0 +1,10 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {validate,safeURL,merge,matches,exportHTML,parseBackup} from './core.js';
+const b={id:'one',title:'Guide',url:'https://example.com/',collection:'Work',tags:['reference'],notes:'Read later'};
+const lib={version:1,bookmarks:[b]};
+test('unsafe protocols and embedded credentials rejected',()=>{for(const url of ['javascript:alert(1)','data:text/html,test','file:///tmp/a','https://user:pass@example.com'])assert.throws(()=>safeURL(url));});
+test('canonical duplicate URLs and duplicate IDs rejected',()=>{for(const extra of [{...b,id:'two',url:'https://example.com'},{...b,url:'https://different.test'}])assert.throws(()=>validate({version:1,bookmarks:[b,extra]}));});
+test('merge idempotent and conflicts atomic',()=>{assert.equal(merge(lib,lib).bookmarks.length,1);assert.throws(()=>merge(lib,{version:1,bookmarks:[{...b,title:'Different'}]}));assert.equal(lib.bookmarks[0].title,'Guide');});
+test('search matches all terms and collection',()=>{assert.ok(matches(b,'example reference','Work'));assert.ok(!matches(b,'missing',''));assert.ok(!matches(b,'','Other'));});
+test('browser HTML escapes imported markup and keeps folders',()=>{const html=exportHTML({version:1,bookmarks:[{...b,title:'<script>alert(1)</script>',notes:'<img onerror=bad>'}]});assert.ok(!html.includes('<script>'));assert.ok(html.includes('<H3>Work</H3>'));assert.ok(html.includes('&lt;img'));});
+test('malformed and oversized imports fail before storage',()=>{assert.throws(()=>parseBackup('{'));assert.throws(()=>parseBackup(' '.repeat(2*1024*1024+1)));assert.throws(()=>validate({version:2,bookmarks:[]}));});
