@@ -1,6 +1,6 @@
 <div align="center">
 
-![Bookmark Cabinet — Find it again.](docs/assets/banner.svg)
+![Link Alcove — Find it again.](docs/assets/banner.svg)
 
 ### Open-source alternative to Raindrop.io for personal bookmarks and research collections
 
@@ -14,7 +14,7 @@ A quiet home for links worth keeping.
 
 > Local candidate. No cloud sync or page archiving; native browser HTML import acceptance remains pending.
 
-![Bookmark Cabinet application workflow](artifacts/demo.png)
+![Link Alcove application workflow](artifacts/demo.png)
 
 *Actual application screenshot with the included public-reference collection.*
 
@@ -50,7 +50,7 @@ To try a non-private collection, import `examples/research.json` under **Import 
 
 [Raindrop.io](https://raindrop.io/) advertises collections, tags and filters, full-text search, archives and collaboration (vendor page reviewed November 15, 2026 IST). This app implements a narrower personal workflow:
 
-| Workflow | Bookmark Cabinet |
+| Workflow | Link Alcove |
 |---|---|
 | Save, edit and delete links | Yes, manual URL/title entry |
 | Collections, tags, notes | Yes, flat collection names |
