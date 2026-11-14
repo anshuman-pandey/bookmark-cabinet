@@ -1,8 +1,28 @@
-# Bookmark Cabinet
+<div align="center">
+
+![Bookmark Cabinet — Find it again.](docs/assets/banner.svg)
+
+### Open-source alternative to Raindrop.io for personal bookmarks and research collections
+
+A quiet home for links worth keeping.
+
+**MIT licensed** · **Own your data** · **No AI service required**
+
+[**Run it →**](#run-it) · [Workflow](#the-workflow) · [MIT license](LICENSE)
+
+</div>
+
+> Local candidate. No cloud sync or page archiving; native browser HTML import acceptance remains pending.
+
+![Bookmark Cabinet application workflow](artifacts/demo.png)
+
+*Actual application screenshot with the included public-reference collection.*
+
+## The workflow
+
+**Save a link → organize collections and tags → search → export a portable backup.**
 
 Open-source alternative to **Raindrop.io** for saving and organizing bookmarks. Local-first, with collections, tags, notes, search, JSON backups and browser-compatible HTML export. MIT licensed.
-
-![Bookmark library](artifacts/demo.png)
 
 ## Run it
 
