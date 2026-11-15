@@ -474,5 +474,138 @@ globalThis.APP_MESSAGES = {
     "ja": "ライブラリを読み取れません。置き換える前に復元用の生データを書き出してください。{0}",
     "zh-CN": "无法读取已保存资料库。替换前请导出原始恢复数据。{0}",
     "zh-TW": "無法讀取已儲存資料庫。取代前請匯出原始復原資料。{0}"
+  },
+  "Import browser bookmarks": {
+    "de": "Browser-Lesezeichen importieren",
+    "es": "Importar marcadores del navegador",
+    "ja": "ブラウザーのブックマークを取り込む",
+    "zh-CN": "导入浏览器书签",
+    "zh-TW": "匯入瀏覽器書籤"
+  },
+  "Browser bookmark HTML": {
+    "de": "Browser-Lesezeichen als HTML",
+    "es": "HTML de marcadores del navegador",
+    "ja": "ブックマークのHTMLファイル",
+    "zh-CN": "浏览器书签 HTML",
+    "zh-TW": "瀏覽器書籤 HTML"
+  },
+  "Import preview": {
+    "de": "Importvorschau",
+    "es": "Vista previa de importación",
+    "ja": "取り込みプレビュー",
+    "zh-CN": "导入预览",
+    "zh-TW": "匯入預覽"
+  },
+  "Review your import": {
+    "de": "Import prüfen",
+    "es": "Revisa la importación",
+    "ja": "取り込み内容を確認",
+    "zh-CN": "检查导入内容",
+    "zh-TW": "檢查匯入內容"
+  },
+  "Add reviewed bookmarks": {
+    "de": "Geprüfte Lesezeichen hinzufügen",
+    "es": "Añadir marcadores revisados",
+    "ja": "確認したブックマークを追加",
+    "zh-CN": "添加已检查的书签",
+    "zh-TW": "新增已檢查的書籤"
+  },
+  "Cancel import": {
+    "de": "Import abbrechen",
+    "es": "Cancelar importación",
+    "ja": "取り込みをキャンセル",
+    "zh-CN": "取消导入",
+    "zh-TW": "取消匯入"
+  },
+  "Choose a bookmark HTML export from Chrome, Firefox, Safari or Edge. Folder paths become collections. Review before saving; existing links are never replaced.": {
+    "de": "Wähle einen HTML-Lesezeichenexport aus Chrome, Firefox, Safari oder Edge. Ordnerpfade werden zu Sammlungen. Prüfe vor dem Speichern; vorhandene Links bleiben erhalten.",
+    "es": "Elige un HTML de marcadores exportado de Chrome, Firefox, Safari o Edge. Las rutas de carpetas se convierten en colecciones. Revisa antes de guardar; los enlaces existentes no se reemplazan.",
+    "ja": "Chrome、Firefox、Safari、Edgeから書き出したブックマークHTMLを選んでください。フォルダーのパスはコレクションになります。保存前に確認できます。既存のリンクは置き換えません。",
+    "zh-CN": "选择从 Chrome、Firefox、Safari 或 Edge 导出的书签 HTML。文件夹路径会转换为收藏集。保存前请检查；现有链接不会被替换。",
+    "zh-TW": "選擇從 Chrome、Firefox、Safari 或 Edge 匯出的書籤 HTML。資料夾路徑會轉換為收藏集。儲存前請檢查；現有連結不會被取代。"
+  },
+  "First five supported links. Unsafe links and invalid entries are skipped; duplicate URLs keep the first entry. Empty folders and favicons are not imported.": {
+    "de": "Die ersten fünf unterstützten Links. Unsichere Links und ungültige Einträge werden übersprungen; bei doppelten URLs bleibt der erste Eintrag. Leere Ordner und Favicons werden nicht importiert.",
+    "es": "Primeros cinco enlaces compatibles. Se omiten enlaces inseguros y entradas inválidas; las URL duplicadas conservan la primera entrada. No se importan carpetas vacías ni iconos.",
+    "ja": "対応するリンクを先頭5件表示します。安全でないリンクや無効な項目は除外し、同じURLは最初の項目を残します。空のフォルダーやアイコンは取り込みません。",
+    "zh-CN": "显示前五个支持的链接。不安全的链接和无效条目将跳过；重复网址保留第一项。不导入空文件夹或网站图标。",
+    "zh-TW": "顯示前五個支援的連結。不安全的連結和無效項目將略過；重複網址保留第一項。不匯入空資料夾或網站圖示。"
+  },
+  "{0} new bookmarks · {1} already saved · {2} duplicates in file · {3} unsupported or invalid entries skipped": {
+    "de": "{0} neue Lesezeichen · {1} bereits gespeichert · {2} Duplikate in der Datei · {3} nicht unterstützte oder ungültige Einträge übersprungen",
+    "es": "{0} nuevos marcadores · {1} ya guardados · {2} duplicados en el archivo · {3} entradas inválidas o incompatibles omitidas",
+    "ja": "新規{0}件 · 保存済み{1}件 · ファイル内の重複{2}件 · 非対応・無効な項目{3}件を除外",
+    "zh-CN": "{0} 个新书签 · {1} 个已保存 · 文件中有 {2} 个重复项 · 跳过 {3} 个不支持或无效的条目",
+    "zh-TW": "{0} 個新書籤 · {1} 個已儲存 · 檔案中有 {2} 個重複項目 · 略過 {3} 個不支援或無效的項目"
+  },
+  "Review the import below. Nothing has been saved yet.": {
+    "de": "Prüfe den Import unten. Noch wurde nichts gespeichert.",
+    "es": "Revisa la importación abajo. Aún no se ha guardado nada.",
+    "ja": "下の取り込み内容を確認してください。まだ保存されていません。",
+    "zh-CN": "请检查下方导入内容。尚未保存任何数据。",
+    "zh-TW": "請檢查下方匯入內容。尚未儲存任何資料。"
+  },
+  "Imported {0} browser bookmarks. Existing links and your editor draft were kept.": {
+    "de": "{0} Browser-Lesezeichen importiert. Vorhandene Links und dein Entwurf bleiben erhalten.",
+    "es": "Se importaron {0} marcadores. Se conservaron los enlaces existentes y tu borrador.",
+    "ja": "{0}件のブックマークを取り込みました。既存のリンクと編集中の下書きは保持されています。",
+    "zh-CN": "已导入 {0} 个浏览器书签。现有链接和编辑草稿均已保留。",
+    "zh-TW": "已匯入 {0} 個瀏覽器書籤。現有連結和編輯草稿均已保留。"
+  },
+  "Restore the saved library before importing browser bookmarks.": {
+    "de": "Stelle vor dem Import die gespeicherte Bibliothek wieder her.",
+    "es": "Restaura la biblioteca antes de importar marcadores.",
+    "ja": "ブックマークを取り込む前に、保存済みライブラリを復元してください。",
+    "zh-CN": "导入浏览器书签前请先恢复已保存资料库。",
+    "zh-TW": "匯入瀏覽器書籤前請先復原已儲存資料庫。"
+  },
+  "Bookmark HTML must be smaller than 2 MB.": {
+    "de": "Lesezeichen-HTML muss kleiner als 2 MB sein.",
+    "es": "El HTML de marcadores debe ocupar menos de 2 MB.",
+    "ja": "ブックマークHTMLは2 MB未満にしてください。",
+    "zh-CN": "书签 HTML 必须小于 2 MB。",
+    "zh-TW": "書籤 HTML 必須小於 2 MB。"
+  },
+  "Choose a browser bookmark HTML export, not a saved webpage.": {
+    "de": "Wähle einen HTML-Lesezeichenexport, keine gespeicherte Webseite.",
+    "es": "Elige un HTML de marcadores exportado, no una página web guardada.",
+    "ja": "保存したウェブページではなく、書き出したブックマークHTMLを選んでください。",
+    "zh-CN": "请选择浏览器导出的书签 HTML，而不是保存的网页。",
+    "zh-TW": "請選擇瀏覽器匯出的書籤 HTML，而不是儲存的網頁。"
+  },
+  "Bookmark folders are nested too deeply.": {
+    "de": "Lesezeichenordner sind zu tief verschachtelt.",
+    "es": "Las carpetas están anidadas a demasiados niveles.",
+    "ja": "ブックマークフォルダーの階層が深すぎます。",
+    "zh-CN": "书签文件夹嵌套过深。",
+    "zh-TW": "書籤資料夾巢狀層級過深。"
+  },
+  "A bookmark import can contain at most 5,000 links.": {
+    "de": "Ein Import darf höchstens 5.000 Links enthalten.",
+    "es": "Una importación puede contener hasta 5000 enlaces.",
+    "ja": "一度に取り込めるリンクは5,000件までです。",
+    "zh-CN": "一次书签导入最多包含 5,000 个链接。",
+    "zh-TW": "一次書籤匯入最多包含 5,000 個連結。"
+  },
+  "A bookmark note exceeds 4,000 characters. Nothing was imported.": {
+    "de": "Eine Notiz überschreitet 4.000 Zeichen. Nichts wurde importiert.",
+    "es": "Una nota supera los 4000 caracteres. No se importó nada.",
+    "ja": "メモが4,000文字を超えています。何も取り込まれていません。",
+    "zh-CN": "书签备注超过 4,000 个字符。未导入任何内容。",
+    "zh-TW": "書籤備註超過 4,000 個字元。未匯入任何內容。"
+  },
+  "No bookmark links were found in this file.": {
+    "de": "Keine Lesezeichenlinks in dieser Datei gefunden.",
+    "es": "No se encontraron marcadores en el archivo.",
+    "ja": "ファイル内にブックマークリンクがありません。",
+    "zh-CN": "此文件中未找到书签链接。",
+    "zh-TW": "此檔案中未找到書籤連結。"
+  },
+  "No supported HTTP(S) bookmarks were found. Nothing was imported.": {
+    "de": "Keine unterstützten HTTP(S)-Lesezeichen gefunden. Nichts wurde importiert.",
+    "es": "No se encontraron marcadores HTTP(S) compatibles. No se importó nada.",
+    "ja": "対応するHTTP(S)ブックマークがありません。何も取り込まれていません。",
+    "zh-CN": "未找到支持的 HTTP(S) 书签。未导入任何内容。",
+    "zh-TW": "未找到支援的 HTTP(S) 書籤。未匯入任何內容。"
   }
 };

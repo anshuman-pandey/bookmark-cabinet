@@ -94,3 +94,9 @@ Start with a reproducible personal-research workflow: import the included refere
 English · Deutsch · Español · 日本語 · 简体中文 · 繁體中文
 
 The interface follows your browser preferences until you choose a language. Switching keeps your draft and saves your choice locally. Translations are bundled; no translation service or telemetry is used. Your content is never translated. Unknown technical diagnostics fall back to English. See [localization notes](I18N.md) for scope and testing.
+
+## Bring your existing bookmarks
+
+Import a browser bookmark HTML export, review the new/duplicate/skipped counts, and add links without replacing saved entries. Nested folder paths become collections; notes and tags are retained when present. Your editor draft stays intact. [Migration guide and supported limits](docs/MIGRATION.md).
+
+![Browser import review in German, with a preserved editor draft](docs/assets/browser-import.png)

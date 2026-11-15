@@ -52,3 +52,49 @@ $('file').onchange=async()=>{try{
 }catch(e){I18n.text($('status'), "Import canceled: {0}", {0:I18n.t(e.message)});}finally{$('file').value='';}};
 window.addEventListener('storage',e=>{if(e.key===KEY)status('Library changed in another tab. Your draft is preserved; export or copy it before reloading.');});
 load();
+
+// Browser migration is deliberately separate from JSON restore and never replaces data.
+let browserImport = null, browserImportGeneration = 0;
+function dismissBrowserImport() {
+ browserImportGeneration++; browserImport=null; $('browser-preview').hidden=true; $('browser-import-apply').disabled=true;
+ $('browser-preview-list').replaceChildren();
+}
+$('browser-import-cancel').onclick=dismissBrowserImport;
+$('browser-html').onchange=async()=>{
+ dismissBrowserImport();
+ const generation=browserImportGeneration;
+ try {
+  if(broken || !state) throw Error('Restore the saved library before importing browser bookmarks.');
+  const file=$('browser-html').files[0];if(!file)return;
+  if(file.size>MAX_FILE)throw Error('Bookmark HTML must be smaller than 2 MB.');
+  const {parseBrowserHTML,mergeBrowserBookmarks}=await import('./html-import.js');
+  const raw=await file.text();
+  if(generation!==browserImportGeneration)return;
+  const incoming=parseBrowserHTML(raw);
+  const preview=mergeBrowserBookmarks(state,incoming);
+  browserImport={incoming,revision:state.revision};
+  I18n.text($('browser-preview-summary'),'{0} new bookmarks · {1} already saved · {2} duplicates in file · {3} unsupported or invalid entries skipped',
+   {0:preview.added,1:preview.existing,2:incoming.duplicates,3:incoming.skipped});
+  $('browser-preview-list').replaceChildren(...incoming.bookmarks.slice(0,5).map(b=>{
+   const li=document.createElement('li');li.textContent=[b.title,b.collection,b.url].filter(Boolean).join(' · ');return li;
+  }));
+  $('browser-preview').hidden=false;$('browser-import-apply').disabled=!preview.added;
+  status('Review the import below. Nothing has been saved yet.');
+ }catch(e){if(generation===browserImportGeneration)status(e.message);}finally{if(generation===browserImportGeneration)$('browser-html').value='';}
+};
+$('browser-import-apply').onclick=async()=>{
+ if(!browserImport)return;
+ const preview=browserImport;$('browser-import-apply').disabled=true;
+ $('browser-html').disabled=true;$('browser-import-cancel').disabled=true;
+ try {
+  const {mergeBrowserBookmarks}=await import('./html-import.js');let added=0;
+  state=await writeStore(preview.revision,current=>{
+   const merged=mergeBrowserBookmarks(current,preview.incoming);added=merged.added;return merged.library;
+  });
+  render();dismissBrowserImport();
+  I18n.text($('status'),'Imported {0} browser bookmarks. Existing links and your editor draft were kept.',{0:added});
+ } catch(e) {
+  // Require a fresh preview after stale data, quota or storage errors.
+  dismissBrowserImport();status(e.message);
+ } finally { $('browser-html').disabled=false;$('browser-import-cancel').disabled=false; }
+};

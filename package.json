@@ -4,11 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test core.test.js storage.test.js",
+    "test": "node --test core.test.js storage.test.js html-import.test.js",
     "test:browser": "node browser.test.cjs",
-    "test:i18n": "python3 scripts/check_i18n.py"
+    "test:i18n": "python3 scripts/check_i18n.py",
+    "build:parser": "esbuild scripts/parser-entry.js --bundle --format=esm --platform=browser --minify --legal-comments=eof --outfile=vendor/html-parser.js",
+    "test:import": "python3 scripts/check_html_import.py"
   },
   "devDependencies": {
+    "esbuild": "0.28.2",
     "playwright": "1.62.1"
+  },
+  "dependencies": {
+    "parse5": "8.1.1"
   }
 }
