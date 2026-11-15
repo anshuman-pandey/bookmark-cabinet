@@ -88,3 +88,9 @@ The storage adapter was adapted from our MIT-licensed Snippet Cabinet implementa
 ## Distribution path
 
 Start with a reproducible personal-research workflow: import the included reference collection, add a link, search it, export and restore into a separate browser profile. Publish that demonstrated workflow alongside the independent repository once available. The source and browser HTML export are the concrete integration surface. Native browser import and a public HTTPS demo must be verified before describing those as tested. No directory listing or external PR acceptance is claimed.
+
+## Interface languages
+
+English · Deutsch · Español · 日本語 · 简体中文 · 繁體中文
+
+The interface follows your browser preferences until you choose a language. Switching keeps your draft and saves your choice locally. Translations are bundled; no translation service or telemetry is used. Your content is never translated. Unknown technical diagnostics fall back to English. See [localization notes](I18N.md) for scope and testing.
