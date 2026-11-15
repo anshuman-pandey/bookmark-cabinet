@@ -14,6 +14,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: npm ci
+      - run: npm run build:parser
+      - run: git diff --exit-code -- vendor/html-parser.js
       - run: npm test
       - run: npx playwright install --with-deps chromium
       - name: Browser acceptance
@@ -26,3 +28,8 @@ jobs:
             sleep 1
           done
           npm run test:browser
+      - run: node --test i18n.catalog.test.cjs
+      - name: Interface languages (isolated fixtures)
+        run: npm run test:i18n
+      - name: Browser bookmark migration
+        run: npm run test:import
